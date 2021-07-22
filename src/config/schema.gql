@@ -1,0 +1,22 @@
+type Cat {
+  _id: ID!
+  name: String!
+  age: Int!
+  breed: String!
+}
+
+type Query {
+  cat(_id: ID!): Cat!
+  cats(skip: Int = 0, limit: Int = 25): [Cat!]!
+}
+
+type Mutation {
+  addRecipe(newCatInput: NewCatInput!): Cat!
+  removeRecipe(_id: ID!): Boolean!
+}
+
+input NewCatInput {
+  title: String!
+  description: String
+  ingredients: [String!]!
+}
